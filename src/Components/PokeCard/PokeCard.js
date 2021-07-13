@@ -14,12 +14,12 @@ const Botoes = styled.div `
     max-width: 100%;
 `
 
-export const PokeCard = () => {
+const PokeCard = (props) => {
     return (
         <Card>
-            <p>POKE CARD</p>
+            <img src={props.img}/>
             <Botoes>
-                <button>ADD</button>
+                <button>{props.name}</button>
                 <button>Ver Det.</button>
             </Botoes>
         </Card>
