@@ -15,8 +15,6 @@ const Botoes = styled.div `
 `
 
 export const PokeCard = () => {
-
-
     return (
         <Card>
             <p>POKE CARD</p>
@@ -27,5 +25,4 @@ export const PokeCard = () => {
         </Card>
     )
 }
-
 export default PokeCard
