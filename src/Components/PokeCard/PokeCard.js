@@ -1,5 +1,6 @@
 import styled from "styled-components"
 
+
 const Card = styled.div `
     border: solid 1px black;
     width: 20vw;
@@ -15,6 +16,7 @@ const Botoes = styled.div `
 `
 
 const PokeCard = (props) => {
+    
     return (
         <Card>
             <img src={props.img}/>
