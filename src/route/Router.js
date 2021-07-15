@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "../Components/Hearder/hearder"
+import Header from "../Components/Header/header"
 import Home from '../Pages/Home';
 import Pokedex from '../Pages/Pokedex';
 import PokeDetails from '../Pages/PokeDetails';
@@ -19,7 +19,7 @@ export const Router = () => {
             <Pokedex />
           </Route>
   
-          <Route exact path={"/pokemon/details"}>
+          <Route exact path={"/:pokemon/details"}>
             <Header />
             <PokeDetails />
           </Route>
