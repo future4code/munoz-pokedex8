@@ -15,7 +15,7 @@ function Pokedex() {
       <h1>PokeDex</h1>
       {states.pokedex &&
         states.pokedex.map((pokemon) => {
-          return <PokeCard name={name} img={pokemon.sprites.front_default}/>;
+          return <PokeCard name={name} img={pokemon.sprites.front_default} alt={name}/>;
         })}     
     </div>
   );

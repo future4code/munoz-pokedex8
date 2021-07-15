@@ -19,7 +19,7 @@ const PokeCard = (props) => {
     
     return (
         <Card>
-            <img src={props.img}/>
+            <img src={props.img} alt="pokemon"/>
             <Botoes>
                 <button>{props.name}</button>
                 <button>Ver Det.</button>

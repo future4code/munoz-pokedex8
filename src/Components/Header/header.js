@@ -2,7 +2,7 @@ import { useHistory } from "react-router";
 import { goToHomePage, goToPokedex } from "../../route/coordinator";
 import { ButtonsContainer } from "./styles";
 
-const Hearder = () => {
+const Header = () => {
     const history = useHistory();
 
     return (
@@ -14,4 +14,4 @@ const Hearder = () => {
         </>
     )
 }
-export default Hearder;
+export default Header;
