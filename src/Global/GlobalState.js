@@ -10478,26 +10478,12 @@ const GlobalState = (props) => {
     }
   ]);
 
-  const getPkms = async () => {
-    const response = await axios.get(
-      ""
-    );
-
-    setPkmApi(response.data);
-  };
-
-  useEffect(() => {
-    requests.getPkms();
-  }, []);
-
   const states = { pkmApi, pokedex };
   const setters = { setPkmApi, setPokedex };
-  const requests = { getPkms };
 
   const contexto = {
     states,
-    setters,
-    requests
+    setters
   };
 
   return (
