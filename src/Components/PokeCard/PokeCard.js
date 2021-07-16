@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import DetailsButton from '../DetailsButton/DetailsButton'
 
 
 const Card = styled.div `
@@ -20,9 +21,10 @@ const PokeCard = (props) => {
     return (
         <Card>
             <img src={props.img} alt="pokemon"/>
+            <p>{props.PokemonName}</p>
             <Botoes>
-                <button>{props.name}</button>
-                <button>Ver Det.</button>
+                <button>{props.botao}</button>
+                <DetailsButton PokemonName={props.PokemonName}/>
             </Botoes>
         </Card>
     )
