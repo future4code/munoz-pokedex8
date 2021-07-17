@@ -4,26 +4,29 @@ import DetailsButton from '../DetailsButton/DetailsButton'
 
 const Card = styled.div `
     border: solid 1px black;
-    width: 20vw;
+    width: 15vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 5px;
+    padding: 5px;
 `
 
 const Botoes = styled.div `
     display: flex;
-    max-width: 100%;
 `
 
 const PokeCard = (props) => {
+   
+
     
     return (
         <Card>
             <img src={props.img} alt="pokemon"/>
             <p>{props.PokemonName}</p>
             <Botoes>
-                <button>{props.botao}</button>
+                <button onClick={() => props.fbotao(props.PokemonName)}>{props.botao}</button>
                 <DetailsButton PokemonName={props.PokemonName}/>
             </Botoes>
         </Card>
