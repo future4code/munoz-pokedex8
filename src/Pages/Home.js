@@ -7,7 +7,7 @@ import PokeCard from '../Components/PokeCard/PokeCard';
 function Home() {
   const { states, setters } = useGlobalContext()
   const [pokemons, setPokemon] = useState()
-  const [pokemonsList, setPokemonsList] = useState([])
+  // const [pokemonsList, setPokemonsList] = useState([])
 
   const get20 = () => {
     axios
@@ -23,7 +23,8 @@ function Home() {
         .get(`${pkm.url}`)
         .then((response) =>{
           const pokemon = response.data
-          setPokemonsList([...pokemonsList, pokemonsList.push(pokemon)])
+          states.pkmApi.push(pokemon)
+          setters.setPkmApi([...states.pkmApi])
       })
     })
   }
@@ -32,14 +33,14 @@ function Home() {
     if (!pokemons){
       get20()
     }
-    if (pokemons && pokemonsList.length === 0){
+    if (pokemons && states.pkmApi.length === 0){
       createState()
     }
-  }, [pokemons, pokemonsList])
+  }, [pokemons, states.pkmApi])
     
   const teste = () => {
     const sprites = []
-    pokemonsList.map((pokemon)=>{
+    states.pkmApi.map((pokemon)=>{
       return sprites.push(pokemon.sprites)
     })
     return console.log(sprites)
@@ -49,12 +50,12 @@ function Home() {
     <div>
       <h1>Home</h1>
       <button onClick={teste}>teste</button>
-      {pokemonsList.map((pokemon)=>{
+      {states.pkmApi.map((pokemon)=>{
         return(
           <PokeCard 
             key={pokemon.name} 
             botao={"remov add"} 
-            img={pokemon.sprites} 
+            img={pokemon.sprites.front_default} 
             alt={pokemon.name} 
             PokemonName={pokemon.name}>            
           </PokeCard>
