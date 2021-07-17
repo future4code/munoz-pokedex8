@@ -26,7 +26,7 @@ const PokeCard = (props) => {
             <img src={props.img} alt="pokemon"/>
             <p>{props.PokemonName}</p>
             <Botoes>
-                <button onClick={() => props.fbotao(props.PokemonName)}>{props.botao}</button>
+                <button onClick={() => props.fbotao(props.pokemon)}>{props.nomeBotao}</button>
                 <DetailsButton PokemonName={props.PokemonName}/>
             </Botoes>
         </Card>

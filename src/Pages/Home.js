@@ -12,7 +12,6 @@ const CardContainer = styled.div`
 function Home() {
   const { states, setters } = useGlobalContext()
   const [pokemons, setPokemon] = useState()
-  // const [pokemonsList, setPokemonsList] = useState([])
 
   const get20 = () => {
     axios
@@ -34,6 +33,33 @@ function Home() {
     })
   }
 
+  const botaoAdicionar = (pkmParaAdicionar) => {
+    states.pokedex.push(pkmParaAdicionar)
+    setters.setPokedex([...states.pokedex])
+  }
+
+  const botaoRemover = (pkmParaRemover) => {
+    const teste2 = states.pokedex.filter(pokemon => pokemon.name != pkmParaRemover.name)
+    setters.setPokedex(teste2)
+  }
+
+  let nomeBotao = "adicionar"
+  let fbotao 
+  
+  const checarSeExiste = (pkmInfo) => {   
+    if (states.pokedex.length == 0){
+      return nomeBotao = "adicionar", fbotao = () => botaoAdicionar(pkmInfo)
+    }
+    
+    states.pokedex.find((pkmNaPokedex) =>{
+      if (pkmNaPokedex.name === pkmInfo.name) {
+        return nomeBotao = "remover", fbotao = () => botaoRemover(pkmInfo)
+      }
+      
+      return nomeBotao = "adicionar", fbotao = () => botaoAdicionar(pkmInfo)
+    })
+  }
+
   useEffect(() => {
     if (!pokemons){
       get20()
@@ -42,23 +68,20 @@ function Home() {
       createState()
     }
   }, [pokemons, states.pkmApi])
-    
-  const teste = () => {
-    const sprites = []
-    states.pkmApi.map((pokemon)=>{
-      return sprites.push(pokemon.sprites)
-    })
-    return console.log(sprites)
-  }
 
+  
   return (
     <CardContainer>
-      {/* <button onClick={teste}>teste</button> */}
       {states.pkmApi.map((pokemon, i)=>{
         return(
-          <PokeCard 
-            key={i} pokemon={pokemon} 
-            botao={"remov add"} 
+          <PokeCard
+          // {...console.log(pokemon)}
+          // {...console.log(i)}
+            {...checarSeExiste(pokemon)}
+            key={i}
+            pokemon={pokemon}
+            nomeBotao={nomeBotao}
+            fbotao={fbotao}
             img={pokemon.sprites.front_default} 
             alt={pokemon.name} 
             PokemonName={pokemon.name}>            
