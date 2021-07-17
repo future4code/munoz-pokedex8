@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import {useGlobalContext} from "../Global/GlobalContext"
 import PokeCard from '../Components/PokeCard/PokeCard';
+import styled from 'styled-components';
 
+const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+`
 
 function Home() {
   const { states, setters } = useGlobalContext()
@@ -47,13 +52,12 @@ function Home() {
   }
 
   return (
-    <div>
-      <h1>Home</h1>
-      <button onClick={teste}>teste</button>
-      {states.pkmApi.map((pokemon)=>{
+    <CardContainer>
+      {/* <button onClick={teste}>teste</button> */}
+      {states.pkmApi.map((pokemon, i)=>{
         return(
           <PokeCard 
-            key={pokemon.name} 
+            key={i} pokemon={pokemon} 
             botao={"remov add"} 
             img={pokemon.sprites.front_default} 
             alt={pokemon.name} 
@@ -61,7 +65,7 @@ function Home() {
           </PokeCard>
         )
       })}
-    </div>
+    </CardContainer>
   );
 }
   
