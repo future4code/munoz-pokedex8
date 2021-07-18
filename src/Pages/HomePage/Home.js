@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import {useGlobalContext} from "../Global/GlobalContext"
-import PokeCard from '../Components/PokeCard/PokeCard';
-import styled from 'styled-components';
-
-const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-`
+import {useGlobalContext} from "../../Global/GlobalContext"
+import PokeCard from '../../Components/PokeCard/PokeCard'
+import { CardContainer } from "./styles"
 
 function Home() {
   const { states, setters } = useGlobalContext()
@@ -36,6 +31,7 @@ function Home() {
   const botaoAdicionar = (pkmParaAdicionar) => {
     states.pokedex.push(pkmParaAdicionar)
     setters.setPokedex([...states.pokedex])
+    alert (`Adicionado à Pokedex`)
   }
 
   const botaoRemover = (pkmParaRemover) => {
@@ -56,7 +52,7 @@ function Home() {
         return nomeBotao = "remover", fbotao = () => botaoRemover(pkmInfo)
       }
       
-      return nomeBotao = "adicionar", fbotao = () => botaoAdicionar(pkmInfo)
+      return nomeBotao = "Adicionar", fbotao = () => botaoAdicionar(pkmInfo)
     })
   }
 

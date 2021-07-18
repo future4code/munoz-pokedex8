@@ -1,6 +1,6 @@
 import React from 'react';
-import PokeCard from '../Components/PokeCard/PokeCard';
-import {useGlobalContext} from "../Global/GlobalContext";
+import PokeCard from '../../Components/PokeCard/PokeCard';
+import {useGlobalContext} from "../../Global/GlobalContext";
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
@@ -16,13 +16,13 @@ function Pokedex() {
   const botaoRemover = (pkmParaRemover) => {
     const teste2 = states.pokedex.filter(pokemon => pokemon.name != pkmParaRemover.name)
     setters.setPokedex(teste2)
+    alert ("Pokémon removido da sua Pokedex!")
   }
 
   const nameBotao = "Remover"
 
   return (
     <div>
-      <h1>PokeDex</h1>
       <CardContainer>
       {states.pokedex &&
         states.pokedex.sort(function(a, b) { return a.id - b.id}).map((pokemon) => {

@@ -1,6 +1,6 @@
 import { useHistory } from "react-router";
 import { goToHomePage, goToPokedex } from "../../route/coordinator";
-import { ButtonsContainer } from "./styles";
+import { ButtonsContainer, Button } from "./styles";
 
 const Header = () => {
     const history = useHistory();
@@ -8,8 +8,8 @@ const Header = () => {
     return (
         <>
             <ButtonsContainer>
-                <button onClick={() => goToHomePage(history)}>Lista de Pokémons</button>
-                <button onClick={() => goToPokedex(history)}>Pokédex</button>
+                <Button onClick={() => goToHomePage(history)}>Lista de Pokémons</Button>
+                <Button onClick={() => goToPokedex(history)}>Pokédex</Button>
             </ButtonsContainer>
         </>
     )
