@@ -28,7 +28,7 @@ function Home() {
         .then((response) =>{
           const pokemon = response.data
           states.pkmApi.push(pokemon)
-          setters.setPkmApi([...states.pkmApi])
+          setters.setPkmApi([...states.pkmApi.sort(function(a, b) { return a.id - b.id})])
       })
     })
   }
@@ -68,7 +68,6 @@ function Home() {
       createState()
     }
   }, [pokemons, states.pkmApi])
-
   
   return (
     <CardContainer>

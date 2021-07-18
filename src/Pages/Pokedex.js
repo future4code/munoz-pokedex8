@@ -25,7 +25,7 @@ function Pokedex() {
       <h1>PokeDex</h1>
       <CardContainer>
       {states.pokedex &&
-        states.pokedex.map((pokemon) => {
+        states.pokedex.sort(function(a, b) { return a.id - b.id}).map((pokemon) => {
           return <PokeCard key={pokemon.name} pokemon={pokemon} nomeBotao={nameBotao} fbotao={botaoRemover} img={pokemon.sprites.front_default} alt={pokemon.name} PokemonName={pokemon.name}/>;
         })}
       </CardContainer>     
