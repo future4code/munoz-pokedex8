@@ -1,6 +1,6 @@
 import React from 'react';
-import PokeCard from '../Components/PokeCard/PokeCard';
-import {useGlobalContext} from "../Global/GlobalContext";
+import PokeCard from '../../Components/PokeCard/PokeCard';
+import {useGlobalContext} from "../../Global/GlobalContext";
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
@@ -16,6 +16,7 @@ function Pokedex() {
   const botaoRemover = (pkmParaRemover) => {
     const teste2 = states.pokedex.filter(pokemon => pokemon.name != pkmParaRemover.name)
     setters.setPokedex(teste2)
+    alert ("Pokemon Removido!")
   }
 
   const nameBotao = "Remover"

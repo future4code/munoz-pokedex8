@@ -2,6 +2,7 @@ import { useHistory } from "react-router";
 import React from "react";
 
 
+
 const DetailsButton = (props) => {
     const history = useHistory();
 

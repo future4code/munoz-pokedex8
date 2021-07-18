@@ -3,7 +3,7 @@ import DetailsButton from '../DetailsButton/DetailsButton'
 
 
 const Card = styled.div `
-    border: solid 1px black;
+    border: outset;
     width: 15vw;
     display: flex;
     flex-direction: column;
@@ -15,18 +15,22 @@ const Card = styled.div `
 
 const Botoes = styled.div `
     display: flex;
+    
+`
+
+const Button = styled.button`
+    
+    cursor: pointer;
+   
 `
 
 const PokeCard = (props) => {
-   
-
-    
     return (
         <Card>
             <img src={props.img} alt="pokemon"/>
-            <p>{props.PokemonName}</p>
+            <strong>{props.PokemonName}</strong>
             <Botoes>
-                <button onClick={() => props.fbotao(props.pokemon)}>{props.nomeBotao}</button>
+                <Button onClick={() => props.fbotao(props.pokemon)}>{props.nomeBotao}</Button>
                 <DetailsButton PokemonName={props.PokemonName}/>
             </Botoes>
         </Card>
